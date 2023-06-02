@@ -1,61 +1,77 @@
 // rock paper scissors excersise in javascript
 
+// global variables
+
+let scorePlayer = 0;
+let scoreComputer = 0;
+
+inputPlayerAndComputer();
+console.log(scorePlayer, scoreComputer);
+inputPlayerAndComputer();
+console.log(scorePlayer, scoreComputer);
+inputPlayerAndComputer();
+console.log(scorePlayer, scoreComputer);
+inputPlayerAndComputer();
+console.log(scorePlayer, scoreComputer);
+inputPlayerAndComputer();
+alert('End of game, final score player: ' + scorePlayer + ' score Computer: ' + scoreComputer)
+
+
 function inputPlayerAndComputer() {
 
     //input player
 
-    let playerAnswor = prompt("What will be your choice, rock paper or scissors");
-    let playerAnsworNoCap = playerAnswor.toLocaleLowerCase();
+    let playerAnswor = prompt("What will be your choice, rock paper or scissors"); // give player input fiels
+    let playerAnsworNoCap = playerAnswor.toLocaleLowerCase(); // make all answors lowercase
     finalAnsworPlayer = playerAnsworNoCap;
-    console.log(finalAnsworPlayer);
+    console.log('your answor: ' + finalAnsworPlayer);
 
     //input computer
 
-    const max = 4;
-    const min = 1;
-    randomNum = Math.floor(Math.random() * (max - min)) + min;
+    const max = 4; // max number random function
+    const min = 1; // min number random function
+    randomNum = Math.floor(Math.random() * (max - min)) + min; // taking in min and max values and ranomizing answor
     if (randomNum == 1) {
         finalAnsworComp = 'rock';
     } else if (randomNum == 2) {
         finalAnsworComp = 'paper';
     } else {
         finalAnsworComp = 'scissor';
-    }
-    console.log(randomNum);
-    console.log(finalAnsworComp);
+    } // translating number to answor computer
+    console.log('Computers answor: ' + finalAnsworComp);
 
-    return checkWinner(finalAnsworComp, finalAnsworPlayer);
+    return checkWinner(finalAnsworComp, finalAnsworPlayer); //passing answors to checkWinner funciton
 }
 
 // check who won
 
 function checkWinner(finalAnsworComp, finalAnsworPlayer) {
     if (finalAnsworPlayer == 'rock' && finalAnsworComp == 'paper') {
-        winOrLose = 'you lose';
+        scoreComputer ++;
+        alert('you lose ' + scorePlayer + ' - ' + scoreComputer);
     } else if (finalAnsworPlayer == 'rock' && finalAnsworComp == 'scissor') {
-        winOrLose = 'you win';
+        scorePlayer ++;
+        alert('you win ' + scorePlayer + ' - ' + scoreComputer);
     } else if (finalAnsworPlayer == 'rock' && finalAnsworComp == 'rock') {
-        winOrLose = 'Draw';
+        alert('draw ' + scorePlayer + ' - ' + scoreComputer);
     } else if (finalAnsworPlayer == 'paper' && finalAnsworComp == 'scissor') {
-        winOrLose = 'you lose';
+        scoreComputer ++;
+        alert('you lose ' + scorePlayer + ' - ' + scoreComputer);
     } else if (finalAnsworPlayer == 'paper' && finalAnsworComp == 'rock') {
-        winOrLose = 'you win';
+        scorePlayer ++;
+        alert('you win ' + scorePlayer + ' - ' + scoreComputer);
     } else if (finalAnsworPlayer == 'paper' && finalAnsworComp == 'paper') {
-        winOrLose = 'draw';
-    } else if (finalAnsworPlayer == 'sissor' && finalAnsworComp == 'rock') {
-        winOrLose = 'you lose';
-    } else if (finalAnsworPlayer == 'sissor' && finalAnsworComp == 'paper') {
-        winOrLose = 'you win';
-    } else if (finalAnsworPlayer == 'sissor' && finalAnsworComp == 'scissor') {
-        winOrLose = 'draw';
+        alert('draw ' + scorePlayer + ' - ' + scoreComputer);
+    } else if (finalAnsworPlayer == 'scissor' && finalAnsworComp == 'rock') {
+        scoreComputer ++;
+        alert('you lose ' + scorePlayer + ' - ' + scoreComputer);
+    } else if (finalAnsworPlayer == 'scissor' && finalAnsworComp == 'paper') {
+        scorePlayer ++;
+        alert('you win ' + scorePlayer + ' - ' + scoreComputer);
+    } else if (finalAnsworPlayer == 'scissor' && finalAnsworComp == 'scissor') {
+        alert('draw ' + scorePlayer + ' - ' + scoreComputer);
     } else {
-        winOrLose = 'Wrong answor,try again';
+        console.log('Wrong answor,try again');
+        inputPlayerAndComputer();
     }
-    console.log(winOrLose);
-}
-
-// game loopfunction
-
-function gameLoop() {
-    inputPlayerAndComputer();
 }
