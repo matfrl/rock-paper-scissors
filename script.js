@@ -1,22 +1,16 @@
 // rock paper scissors excersise in javascript
 
-// Global Variables
+function inputPlayerAndComputer() {
 
-let finalAnsworComp = 'scissor';
-let finalAnsworPlayer = 'paper';
+    //input player
 
-// input field for the user give his choice: rock, paper or scissors
-
-function inputPlayer() {
     let playerAnswor = prompt("What will be your choice, rock paper or scissors");
     let playerAnsworNoCap = playerAnswor.toLocaleLowerCase();
     finalAnsworPlayer = playerAnsworNoCap;
     console.log(finalAnsworPlayer);
-}
 
-// function to random generate the choice of the computer
+    //input computer
 
-function inputComputer () {
     const max = 4;
     const min = 1;
     randomNum = Math.floor(Math.random() * (max - min)) + min;
@@ -29,11 +23,13 @@ function inputComputer () {
     }
     console.log(randomNum);
     console.log(finalAnsworComp);
+
+    return checkWinner(finalAnsworComp, finalAnsworPlayer);
 }
 
 // check who won
 
-function checkWinner() {
+function checkWinner(finalAnsworComp, finalAnsworPlayer) {
     if (finalAnsworPlayer == 'rock' && finalAnsworComp == 'paper') {
         winOrLose = 'you lose';
     } else if (finalAnsworPlayer == 'rock' && finalAnsworComp == 'scissor') {
@@ -58,4 +54,8 @@ function checkWinner() {
     console.log(winOrLose);
 }
 
-// generate a output on screen
+// game loopfunction
+
+function gameLoop() {
+    inputPlayerAndComputer();
+}
