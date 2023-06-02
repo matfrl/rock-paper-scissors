@@ -5,15 +5,11 @@
 let scorePlayer = 0;
 let scoreComputer = 0;
 
-inputPlayerAndComputer();
-console.log(scorePlayer, scoreComputer);
-inputPlayerAndComputer();
-console.log(scorePlayer, scoreComputer);
-inputPlayerAndComputer();
-console.log(scorePlayer, scoreComputer);
-inputPlayerAndComputer();
-console.log(scorePlayer, scoreComputer);
-inputPlayerAndComputer();
+for (let i = 1 ; i < 5 ; i ++) {
+    inputPlayerAndComputer();
+    console.log(scorePlayer, scoreComputer);    
+}
+
 alert('End of game, final score player: ' + scorePlayer + ' score Computer: ' + scoreComputer)
 
 
