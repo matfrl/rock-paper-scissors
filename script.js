@@ -2,8 +2,8 @@
 
 // Global Variables
 
-let finalAnsworComp = null;
-let finalAnsworPlayer = null;
+let finalAnsworComp = 'scissor';
+let finalAnsworPlayer = 'paper';
 
 // input field for the user give his choice: rock, paper or scissors
 
@@ -13,6 +13,8 @@ function inputPlayer() {
     finalAnsworPlayer = playerAnsworNoCap;
     console.log(finalAnsworPlayer);
 }
+
+// function to random generate the choice of the computer
 
 function inputComputer () {
     const max = 4;
@@ -29,12 +31,31 @@ function inputComputer () {
     console.log(finalAnsworComp);
 }
 
-
-
-
-
-// function to random generate the choice of the computer
-
 // check who won
+
+function checkWinner() {
+    if (finalAnsworPlayer == 'rock' && finalAnsworComp == 'paper') {
+        winOrLose = 'you lose';
+    } else if (finalAnsworPlayer == 'rock' && finalAnsworComp == 'scissor') {
+        winOrLose = 'you win';
+    } else if (finalAnsworPlayer == 'rock' && finalAnsworComp == 'rock') {
+        winOrLose = 'Draw';
+    } else if (finalAnsworPlayer == 'paper' && finalAnsworComp == 'scissor') {
+        winOrLose = 'you lose';
+    } else if (finalAnsworPlayer == 'paper' && finalAnsworComp == 'rock') {
+        winOrLose = 'you win';
+    } else if (finalAnsworPlayer == 'paper' && finalAnsworComp == 'paper') {
+        winOrLose = 'draw';
+    } else if (finalAnsworPlayer == 'sissor' && finalAnsworComp == 'rock') {
+        winOrLose = 'you lose';
+    } else if (finalAnsworPlayer == 'sissor' && finalAnsworComp == 'paper') {
+        winOrLose = 'you win';
+    } else if (finalAnsworPlayer == 'sissor' && finalAnsworComp == 'scissor') {
+        winOrLose = 'draw';
+    } else {
+        winOrLose = 'Wrong answor,try again';
+    }
+    console.log(winOrLose);
+}
 
 // generate a output on screen
