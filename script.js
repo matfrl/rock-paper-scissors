@@ -5,25 +5,23 @@
 let scorePlayer = 0;
 let scoreComputer = 0;
 
-for (let i = 1 ; i < 5 ; i ++) {
-    inputPlayerAndComputer();
-    console.log(scorePlayer, scoreComputer);    
-}
-
-alert('End of game, final score player: ' + scorePlayer + ' score Computer: ' + scoreComputer)
-
-
-function inputPlayerAndComputer() {
+const btnRock = document.querySelector('#rock');
+const btnPaper = document.querySelector('#paper');
+const btnScissor =document.querySelector('#scissor');
+btnRock.addEventListener ('click', () => inputPlayerAndComputer('rock'));
+btnPaper.addEventListener ('click', () => inputPlayerAndComputer('paper'));
+btnScissor.addEventListener ('click', () => inputPlayerAndComputer('scissor'));
+ 
+function inputPlayerAndComputer(playerAnswor) {
 
     //input player
 
-    let playerAnswor = prompt("What will be your choice, rock paper or scissors"); // give player input fiels
     let playerAnsworNoCap = playerAnswor.toLocaleLowerCase(); // make all answors lowercase
     finalAnsworPlayer = playerAnsworNoCap;
     console.log('your answor: ' + finalAnsworPlayer);
-
+    
     //input computer
-
+    
     const max = 4; // max number random function
     const min = 1; // min number random function
     randomNum = Math.floor(Math.random() * (max - min)) + min; // taking in min and max values and ranomizing answor
@@ -35,7 +33,7 @@ function inputPlayerAndComputer() {
         finalAnsworComp = 'scissor';
     } // translating number to answor computer
     console.log('Computers answor: ' + finalAnsworComp);
-
+    
     return checkWinner(finalAnsworComp, finalAnsworPlayer); //passing answors to checkWinner funciton
 }
 
@@ -71,3 +69,10 @@ function checkWinner(finalAnsworComp, finalAnsworPlayer) {
         inputPlayerAndComputer();
     }
 }
+/* for (let i = 1 ; i < 5 ; i ++) {
+    inputPlayerAndComputer();
+    console.log(scorePlayer, scoreComputer);    
+}
+
+alert('End of game, final score player: ' + scorePlayer + ' score Computer: ' + scoreComputer)
+ */
